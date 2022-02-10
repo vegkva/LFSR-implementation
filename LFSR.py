@@ -136,9 +136,10 @@ decryptText = decrypt(ciphertext, key, 8)
 # return the bitStrings assosiated Ascii character
 def bitString2Char(bitString):
     byteValue = 0
-    for i in range(8):
+    bitCount = len(bitString)
+    for i in range(bitCount):
         if bitString[i] == '1':
-            byteValue += 2**(7-i) # The bitString is organized as a littl-endian byte
+            byteValue += 2**(bitCount-1-i) # The bitString is organized as a littl-endian byte
                                   # meaning that the first position in the bitString
                                   # is the most significant bit having the value of
                                   # 2 with the exponent of 7, which will give the 
@@ -149,5 +150,6 @@ def bitString2Char(bitString):
 print("decrypted: ", decrypt(ciphertext, key, 8))
 
 # Print the ascii text on one line.
+print("The secret: ", end="")
 for i in decryptText:
     print(bitString2Char(i), end="")
