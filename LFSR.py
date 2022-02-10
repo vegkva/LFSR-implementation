@@ -70,7 +70,7 @@ def encrypt(plaintext, key, space):
                                                             # (1 + 1) = (0 + 0) = 0,  (0 + 1) = (1 + 0) = 1
                                                             # The key is the same size/length as the plaintext.
         encrypted += str((plaintext[i] + key[i]) % 2)   # "building" a string from the xor-ing ...
-        if len(encrypted_list) % space == 0:            # until it reaches the size of the numer given in space.
+        if len(encrypted_list) % space == 0:            # until it reaches the size of the number given in space.
             encrypted += " "                            # then, enter a single space into the string encrypted,
                                                         # for reason that is unkown.
 
@@ -82,9 +82,9 @@ Decrypts ciphertext by xor'ing
 'ciphertext' with 'key'. 'Space' is
 the number of digits in the binary
 """
-# In order to decrypt the ciphertext, receiving party has use the same key 
+# In order to decrypt the ciphertext, receiving party has to use the same key 
 # that was used for encrypting the message, the same prosedure to generate the 
-# key, which means info abaout the feedback and the initial state values ==>
+# key, which means info about the feedback and the initial state values ==>
 # indicating SHARED SECRET cryptographic methodology
 # The parameter, space, is considered a sort of packet size, ususally as part
 # of a communication protocol (the size can both be static or dynamic, which 
